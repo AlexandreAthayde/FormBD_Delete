@@ -14,7 +14,7 @@ namespace Login
 
         public ConecxaoBD()
         {
-            var caminho = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Alexandre Athayde\OneDrive - Centro Paula Souza - FATEC\Fatec - Garça\4º - Termo\Prof.Fabio\N2\Login\UsersDB.mdf;Integrated Security=True;Connect Timeout=30";
+            var caminho = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =C:\Users\Alexandre Athayde\OneDrive - Centro Paula Souza - FATEC\Fatec-Garça\4º - Termo\Prof. Fabio\N2\Login\UsersDB.mdf; Integrated Security = True; Connect Timeout = 30";
             conecxao = new SqlConnection(caminho);
             conecxao.Open();
 
@@ -26,7 +26,7 @@ namespace Login
             {
                 System.Windows.Forms.MessageBox.Show("Conecxão no Banco Fracassada!");
             }
-            conecxao.Close();
+            
         }
         public bool Inserir(String nome, String email, String usuario, String senha)
         {
@@ -49,6 +49,28 @@ namespace Login
                 return false;
             }
            
+        }
+
+        public bool Select(String nome, string senha)
+        {
+            String consulta = "SELECT * from usuarios";
+            SqlCommand cmd = new SqlCommand(consulta, conecxao);
+            SqlDataReader rdr = cmd.ExecuteReader();
+            bool buscar;
+
+            while(rdr.Read())
+            {
+                 var n = rdr["Usuario"].ToString();
+                 var s = rdr["Senha"].ToString();
+                if (nome == n && senha == s)
+                {
+                    buscar = true;
+                }
+                else
+                {
+                    buscar = false;
+                }
+            }return buscar;
         }
         
     }

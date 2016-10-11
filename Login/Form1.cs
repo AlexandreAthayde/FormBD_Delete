@@ -24,5 +24,20 @@ namespace Login
             cad.Show();
             
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ConecxaoBD con = new ConecxaoBD();
+            var login = con.Select(textBox1.Text, textBox2.Text);
+
+            if (login)
+            {
+                MessageBox.Show("Usuário logado");
+            }
+            else
+            {
+                MessageBox.Show("Login Falied");
+            }
+        }
     }
 }
