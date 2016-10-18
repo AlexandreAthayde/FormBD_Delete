@@ -50,13 +50,12 @@ namespace Login
             }
            
         }
-
+        bool buscar;
         public bool Select(String nome, string senha)
         {
-            String consulta = "SELECT * from usuarios";
+            string consulta = "SELECT Usuario, Senha from usuarios";
             SqlCommand cmd = new SqlCommand(consulta, conecxao);
             SqlDataReader rdr = cmd.ExecuteReader();
-            bool buscar;
 
             while(rdr.Read())
             {
@@ -65,6 +64,7 @@ namespace Login
                 if (nome == n && senha == s)
                 {
                     buscar = true;
+                    break;
                 }
                 else
                 {

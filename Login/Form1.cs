@@ -32,11 +32,11 @@ namespace Login
 
             if (login)
             {
-                MessageBox.Show("Usuário logado");
+                MessageBox.Show("Usuário logado com sucesso", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Login Falied");
+                MessageBox.Show("Usuário ou senha incorreto!","Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
