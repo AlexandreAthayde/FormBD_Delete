@@ -33,8 +33,8 @@ namespace Login
             if (login)
             {
                 MessageBox.Show("Usuário logado com sucesso", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Produtos produto = new Produtos();
-                produto.Show();
+                Controle controle = new Controle();
+                controle.Show();
             }
             else
             {

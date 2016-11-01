@@ -72,6 +72,30 @@ namespace Login
                 }
             }return buscar;
         }
+
         
+        public List<Usuarios> BuscarTodos()
+        {
+            string consulta = "SELECT * from usuarios";
+            SqlCommand cmd = new SqlCommand(consulta, conecxao);
+            SqlDataReader rdr = cmd.ExecuteReader();
+
+            Usuarios users = null;
+            List<Usuarios> listuser = new List<Usuarios>();
+
+            while (rdr.Read())
+            {
+                users = new Usuarios();
+                users.Id = Convert.ToInt32(rdr["Id"]);
+                users.Nome = rdr["Nome"].ToString();
+                users.Email = rdr["Email"].ToString();
+                users.Usuario = rdr["Usuario"].ToString();
+                users.Senha = rdr["Senha"].ToString();
+                listuser.Add(users);
+            }
+            return listuser;
+        }
+        
+
     }
 }
