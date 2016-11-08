@@ -95,7 +95,36 @@ namespace Login
             }
             return listuser;
         }
-        
+
+        public bool Update(String nome, String email, String usuario, String senha, int id)
+        {
+            var sql = " UPDATE usuarios SET " +
+                " Nome = @nome, " +
+                " Email = @email, " +
+                " Usuario = @usuario, " +
+                " Senha = @senha " +
+                " WHERE Id = @id ";
+
+            var comando = new SqlCommand(sql, conecxao);
+
+            comando.Parameters.AddWithValue("@nome", nome);
+            comando.Parameters.AddWithValue("@email", email);
+            comando.Parameters.AddWithValue("@usuario", usuario);
+            comando.Parameters.AddWithValue("@senha", senha);
+            comando.Parameters.AddWithValue("@id", id);
+
+            var retorno = comando.ExecuteNonQuery();
+
+            if (retorno > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
 
     }
 }

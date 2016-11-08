@@ -46,8 +46,16 @@ namespace Login
 
         private void dgv_dados_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            var linha = dgv_dados.CurrentRow.DataBoundItem as Usuarios;
-            MessageBox.Show( "Nome: " +linha.Nome + "\n" + "E-mail: " + linha.Email + "\n" +"Usuário: " + linha.Usuario, "Seleção de linha", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+            Usuarios linha = dgv_dados.CurrentRow.DataBoundItem as Usuarios;
+            this.Close();
+            
+            Update update = new Update(linha);
+            update.Show();
+
+
+            //MessageBox.Show( "Nome: " +linha.Nome + "\n" + "E-mail: " + linha.Email + "\n" +"Usuário: " + linha.Usuario, "Seleção de linha", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+
+
         }
     }
 }
