@@ -43,7 +43,7 @@ namespace Login
 
             if (retorno)
             {
-                MessageBox.Show("Usuário alterado com sucesso!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information,MessageBoxDefaultButton.Button1);
+                MessageBox.Show("Usuário alterado com sucesso!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
                 Controle controle = new Controle();
                 controle.Show();
