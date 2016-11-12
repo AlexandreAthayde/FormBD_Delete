@@ -126,5 +126,22 @@ namespace Login
 
         }
 
+        public bool Delete(Usuarios usuario) {
+
+            var sql = "DELETE FROM usuarios WHERE Id = @id";
+            var comando = new SqlCommand(sql, conecxao);
+            comando.Parameters.AddWithValue("@id", usuario.Id);
+
+            var retorno = comando.ExecuteNonQuery();
+            if (retorno > 0) {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
+        }
+
     }
 }

@@ -35,18 +35,19 @@
             // dgv_dados
             // 
             this.dgv_dados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_dados.Location = new System.Drawing.Point(24, 34);
+            this.dgv_dados.Location = new System.Drawing.Point(21, 12);
             this.dgv_dados.Name = "dgv_dados";
             this.dgv_dados.Size = new System.Drawing.Size(549, 317);
             this.dgv_dados.TabIndex = 0;
             this.dgv_dados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_dados_CellContentClick);
+            this.dgv_dados.ColumnHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_dados_ColumnHeaderMouseDoubleClick);
             this.dgv_dados.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_dados_RowHeaderMouseClick);
             // 
             // Controle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(597, 375);
+            this.ClientSize = new System.Drawing.Size(597, 406);
             this.Controls.Add(this.dgv_dados);
             this.Name = "Controle";
             this.Text = "Controle";
